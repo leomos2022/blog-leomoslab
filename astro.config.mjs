@@ -3,7 +3,7 @@ import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://leomoslab.com',
+  site: 'https://blog.leomoslab.com',
   output: 'server',
   adapter: cloudflare(),
   vite: {
