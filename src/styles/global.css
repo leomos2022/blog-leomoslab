@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* Configuración opcional de Tailwind 4 */
+@theme {
+  /* Colores personalizados si los necesitas */
+  --color-brand: #3b82f6;
+}
+
+/* Estilos globales */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-slate-900 text-slate-100 antialiased;
+  }
+}

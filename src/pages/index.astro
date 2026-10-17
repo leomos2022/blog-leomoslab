@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+const featuredPosts = [
+  {
+    title: 'Como estructuro un proyecto front-end mantenible',
+    excerpt: 'Patrones, decisiones y errores comunes que he visto en proyectos reales.',
+    tag: 'Arquitectura',
+    href: '/blog',
+  },
+  {
+    title: 'Notas de implementacion con Astro + Tailwind 4',
+    excerpt: 'Lo que si funciono, lo que no, y como lo resolvi paso a paso.',
+    tag: 'Astro',
+    href: '/blog',
+  },
+  {
+    title: 'Debugging practico para proyectos JavaScript',
+    excerpt: 'Mi flujo para encontrar fallas rapido sin perder horas en hipotesis.',
+    tag: 'Productividad',
+    href: '/blog',
+  },
+];
+
+const works = [
+  {
+    name: 'Sistema de reservas para pyme',
+    summary: 'Como lo construi, retos tecnicos y decisiones de arquitectura.',
+  },
+  {
+    name: 'Dashboard de analitica de contenido',
+    summary: 'Visualizaciones, integraciones y aprendizajes de performance.',
+  },
+  {
+    name: 'Sitio editorial con CMS',
+    summary: 'Enfoque en SEO tecnico, escalabilidad de contenido y DX.',
+  },
+];
+
+const thoughts = [
+  'Documentar decisiones tecnicas evita rehacer el mismo debate meses despues.',
+  'La mejor optimizacion inicial es reducir complejidad, no agregar tooling.',
+  'Un blog tecnico tambien puede mostrar criterio, no solo tutoriales.',
+];
+
+const talks = [
+  {
+    event: 'Meetup de JavaScript CDMX',
+    topic: 'Errores de arquitectura en apps pequenas que crecen rapido',
+    year: '2025',
+  },
+  {
+    event: 'Comunidad Frontend LATAM',
+    topic: 'Patrones para escalar componentes sin romper consistencia',
+    year: '2024',
+  },
+  {
+    event: 'Sesion interna de mentoring',
+    topic: 'Como revisar codigo con foco en impacto y riesgos',
+    year: '2024',
+  },
+];
+
+const videoEmbeds = [
+  {
+    title: 'Aprende cómo descargar, instalar y explorar Power BI',
+    description: 'Guía paso a paso para comenzar con Power BI desde cero.',
+    url: 'https://www.youtube-nocookie.com/embed/L6lek_ziPhY',
+  },
+  {
+    title: 'Velocidad de ejecución en pruebas de código',
+    description: 'Comparo y explico cómo medir y mejorar la velocidad de ejecución en tus pruebas.',
+    url: 'https://www.youtube-nocookie.com/embed/1vAWjX_jz6E',
+  },
+  {
+    title: 'Retropropagación y redes neuronales (Backpropagation)',
+    description: 'Explicación sencilla de cómo funciona la retropropagación en redes neuronales.',
+    url: 'https://www.youtube-nocookie.com/embed/eUc4RkTvB54',
+  },
+];
+
+const localVideoExamples = [];
+---
+
+<BaseLayout title="Leomos Lab Blog - Ideas, trabajos y aprendizajes">
+  <Header />
+  <main>
+    <section class="pt-32 pb-16 lg:pt-40 lg:pb-24">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl">
+          <p class="text-blue-400 font-semibold text-lg mb-4">Blog personal de tecnologia</p>
+          <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+            Escribo para ensenar lo que aprendo, mostrar trabajos reales y compartir ideas.
+          </h1>
+          <p class="text-slate-300 text-lg leading-relaxed">
+            Este blog complementa mi portafolio: aqui publico procesos, decisiones tecnicas,
+            errores, aprendizajes, participaciones y videos para que veas como pienso y construyo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-5xl font-bold mb-4">Ultimos Articulos</h2>
+          <p class="text-slate-400 text-lg">Guias practicas, notas tecnicas y reflexiones</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          {featuredPosts.map((post) => (
+            <article class="bg-slate-800 rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300">
+              <div class="h-48 bg-slate-700 flex items-center justify-center">
+                <span class="text-blue-300 text-sm uppercase tracking-wider">{post.tag}</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3">{post.title}</h3>
+                <p class="text-slate-400 mb-4">{post.excerpt}</p>
+                <a href={post.href} class="text-blue-400 hover:text-blue-300 font-semibold">
+                  Leer más →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href="/blog" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
+            Ver todos los articulos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="trabajos" class="py-20 bg-slate-800/40">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Trabajos que he publicado</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {works.map((work) => (
+            <article class="bg-slate-900 rounded-2xl p-6 border border-slate-700">
+              <h3 class="text-xl font-semibold mb-3">{work.name}</h3>
+              <p class="text-slate-400">{work.summary}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="pensamientos" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-10">Pensamientos</h2>
+        <div class="space-y-4">
+          {thoughts.map((item) => (
+            <blockquote class="bg-slate-800/70 border-l-4 border-blue-500 rounded-xl p-6 text-slate-200">
+              {item}
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="participaciones" class="py-20 bg-slate-800/40">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-10">Participaciones</h2>
+        <div class="space-y-6">
+          {talks.map((talk) => (
+            <article class="bg-slate-900 rounded-2xl p-6 border border-slate-700 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+              <div>
+                <p class="text-blue-300 text-sm mb-1">{talk.event}</p>
+                <h3 class="text-xl font-semibold">{talk.topic}</h3>
+              </div>
+              <span class="text-slate-400 font-medium">{talk.year}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="videos" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-4">Videos</h2>
+        <p class="text-slate-400 mb-10 max-w-3xl">
+          Puedes publicar videos de dos formas: embebidos de YouTube o archivos propios en
+          <strong> /public/videos/ </strong>.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+          {videoEmbeds.map((video) => (
+            <article class="bg-slate-900 rounded-2xl overflow-hidden border border-slate-700">
+              <div class="aspect-video">
+                <iframe
+                  class="w-full h-full"
+                  src={video.url}
+                  title={video.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">{video.title}</h3>
+                <p class="text-slate-400">{video.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Eliminada la tarjeta de ejemplo de video local */}
+      </div>
+    </section>
+
+    <section id="suscripcion" class="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Recibe nuevas publicaciones</h2>
+        <p class="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">
+          Si te interesa el contenido sobre desarrollo, arquitectura y aprendizaje practico,
+          suscribete para recibir nuevos articulos y videos.
+        </p>
+        <a href="/contact" class="bg-white text-blue-900 hover:bg-blue-50 px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 inline-block">
+          Suscribirme
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-950 py-12 border-t border-slate-800">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold">L</span>
+            </div>
+            <span class="text-xl font-bold">Leomos Lab</span>
+          </div>
+          <p class="text-slate-400">Blog personal sobre desarrollo, trabajo real y aprendizaje continuo.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contenido</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="/#trabajos" class="hover:text-white">Trabajos</a></li>
+            <li><a href="/#pensamientos" class="hover:text-white">Pensamientos</a></li>
+            <li><a href="/#videos" class="hover:text-white">Videos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Proyecto</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="/about" class="hover:text-white">Sobre mi</a></li>
+            <li><a href="/blog" class="hover:text-white">Blog</a></li>
+            <li><a href="/contact" class="hover:text-white">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contacto</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li>leomoslab@gmail.com</li>
+            <li>+57 3103953475</li>
+            <li>Bogotá, Colombia</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 text-center text-slate-400">
+        <p>&copy; 2026 Leomos Lab. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
